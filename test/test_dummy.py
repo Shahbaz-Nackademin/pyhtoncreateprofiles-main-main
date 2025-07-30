@@ -1,0 +1,12 @@
+import unittest
+
+class TestDummy(unittest.TestCase):
+    def test_always_passes(self):
+        self.assertTrue(True)
+
+    def test_fail(self):
+        self.assertEqual(1, 2)  # Detta kommer att faila
+
+if __name__ == '__main__':
+    unittest.main()
+
