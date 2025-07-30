@@ -28,7 +28,7 @@ jobs:
 
       - name: Run unit test
         run: |
-          python -m pytest test_dummy.py -v
+          python -m pytest tests/test_dummy.py -v
 
       - name: Create dist folder
         run: |
