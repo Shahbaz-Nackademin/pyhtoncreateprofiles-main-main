@@ -28,7 +28,7 @@ jobs:
 
       - name: Run unit test
         run: |
-          python -m pytest test_success.py -v
+          python -m pytest test_dummy.py -v
 
       - name: Create dist folder
         run: |
@@ -47,4 +47,3 @@ jobs:
 
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
-        
