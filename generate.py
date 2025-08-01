@@ -1,15 +1,15 @@
-import Faker
+import faker
 import random
 import string
 import datetime
 import csv
 
-fakeSweden = Faker(['sv_SE'])
-fakeNorway = Faker(['no_NO'])
-fakeFinland = Faker(['fi_FI'])
-fakeDenmark = Faker(['dk_DK'])
+fakeSweden = faker(['sv_SE'])
+fakeNorway = faker(['no_NO'])
+fakeFinland = faker(['fi_FI'])
+fakeDenmark = faker(['dk_DK'])
 
-def getFaker():
+def getfaker():
     n = random.randint(0,80)
     if n < 40:
         return  fakeSweden, 'sv_SE'
@@ -112,8 +112,6 @@ def getCallingCode(currentCountry):
     return correct
 
 
-# f = fake.first_name(), 'no_NO', 'fi_FI','dk_DK'])
-
 antal = 0
 
 with open('profiles1.csv', 'w', newline='',encoding='utf-8') as file:
@@ -122,7 +120,7 @@ with open('profiles1.csv', 'w', newline='',encoding='utf-8') as file:
     writer.writerow(field)
 
     while antal < 1000:
-        fake, current = getFaker()
+        fake, current = getfaker()
         f = fake.first_name()
         f2 = fake.last_name()
         adr = fake.street_name()
