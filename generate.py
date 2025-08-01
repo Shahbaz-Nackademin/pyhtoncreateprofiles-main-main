@@ -1,4 +1,4 @@
-from faker import Faker
+import Faker
 import random
 import string
 import datetime
