@@ -1,4 +1,4 @@
-name: CI Pipeline
+name: CI/CD Pipeline
 
 on:
   push:
@@ -20,17 +20,21 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.x'
+          python-version: '3.11'
 
       - name: Install pytest
-        run: |
-          pip install pytest
+        run: pip install pytest
 
-      - name: Run unit test
-        run: |
-          python -m pytest tests/test_dummy.py -v
+      - name: Run generate.py
+        run: python generate.py
 
-      - name: Create dist folder
+      - name: Run csvtojson.py
+        run: python csvtojson.py
+
+      - name: Run all tests
+        run: python -m pytest -v
+
+      - name: Prepare deployment folder
         run: |
           mkdir -p dist
           cp index.html dist/
