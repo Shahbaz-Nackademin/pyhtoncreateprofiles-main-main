@@ -1,13 +1,14 @@
-import faker
+from faker import Faker
 import random
 import string
 import datetime
 import csv
 
-fakeSweden = faker(['sv_SE'])
-fakeNorway = faker(['no_NO'])
-fakeFinland = faker(['fi_FI'])
-fakeDenmark = faker(['dk_DK'])
+fakeSweden = Faker('sv_SE')
+fakeNorway = Faker('no_NO')
+fakeFinland = Faker('fi_FI')
+fakeDenmark = Faker('dk_DK')
+
 
 def getfaker():
     n = random.randint(0,80)
@@ -142,5 +143,3 @@ with open('profiles1.csv', 'w', newline='',encoding='utf-8') as file:
         writer.writerow(field)
 
         antal = antal + 1
-
-
