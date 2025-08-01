@@ -1,4 +1,4 @@
-name: CI Pipeline
+name: CI/CD Pipeline
 
 on:
   push:
@@ -22,14 +22,19 @@ jobs:
         with:
           python-version: '3.x'
 
-      - name: Install pytest
-        run: pip install pytest
-
       - name: Install dependencies
-        run: pip install -r requirements.txt
+        run: |
+          pip install -r requirements.txt
+          pip install pytest
 
-      - name: Run unit tests
-        run: python -m pytest tests/test_dummy.py -v
+      - name: Run generate.py
+        run: python generate.py
+
+      - name: Run csvtojson.py
+        run: python csvtojson.py
+
+      - name: Run all tests
+        run: python -m pytest test_data.py -v
 
       - name: Create dist folder
         run: |
